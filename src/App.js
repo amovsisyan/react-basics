@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
     state = {
@@ -104,41 +104,44 @@ class App extends Component {
         }
 
         return (
-            <div className="App">
-                <h1 className={classes.join(' ')}>Here</h1>
-                <button
-                    onClick={() => this.switchNameHandler('Maxoooooooo')}
-                >
-                    Button
-                </button>
+            <StyleRoot>
+                <div className="App">
+                    <h1 className={classes.join(' ')}>Here</h1>
+                    <button
+                        onClick={() => this.switchNameHandler('Maxoooooooo')}
+                    >
+                        Button
+                    </button>
 
-                <button
-                    onClick={this.togglePersonsHandler.bind(this)}
-                    style={style}
-                >
-                    Toggle Persons
-                </button>
+                    <button
+                        onClick={this.togglePersonsHandler.bind(this)}
+                        style={style}
+                    >
+                        Toggle Persons
+                    </button>
 
-                {/*{*/}
-                {/*this.state.showPersons ?*/}
-                {/*<div>*/}
-                {/*<Person*/}
-                {/*name={this.state.persons[0].name}*/}
-                {/*age={this.state.persons[0].age}*/}
-                {/*click={this.switchNameHandler.bind(this, 'Another Maxoooooooo')}*/}
-                {/*inputChange={this.nameChangedHandler}*/}
-                {/*/>*/}
-                {/*<Person*/}
-                {/*name={this.state.persons[1].name}*/}
-                {/*age={this.state.persons[1].age}>*/}
-                {/*Some Info from mother side.*/}
-                {/*</Person>*/}
-                {/*</div>*/}
-                {/*: null*/}
-                {/*}*/}
+                    {persons}
 
-                {persons}
-            </div>
+                </div>
+            </StyleRoot>
+                //
+                // {/*{*/}
+                // {/*this.state.showPersons ?*/}
+                // {/*<div>*/}
+                // {/*<Person*/}
+                // {/*name={this.state.persons[0].name}*/}
+                // {/*age={this.state.persons[0].age}*/}
+                // {/*click={this.switchNameHandler.bind(this, 'Another Maxoooooooo')}*/}
+                // {/*inputChange={this.nameChangedHandler}*/}
+                // {/*/>*/}
+                // {/*<Person*/}
+                // {/*name={this.state.persons[1].name}*/}
+                // {/*age={this.state.persons[1].age}>*/}
+                // {/*Some Info from mother side.*/}
+                // {/*</Person>*/}
+                // {/*</div>*/}
+                // {/*: null*/}
+                // {/*}*/}
         );
     }
 }
