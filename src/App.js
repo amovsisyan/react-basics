@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import CSSClasses from './App.css';
 import Person from './Person/Person';
 import Radium from 'radium';
 
@@ -104,7 +104,7 @@ class App extends Component {
         }
 
         return (
-            <div className="App">
+            <div className={CSSClasses.App}>
                 <h1 className={classes.join(' ')}>Here</h1>
                 <button
                     onClick={() => this.switchNameHandler('Maxoooooooo')}
