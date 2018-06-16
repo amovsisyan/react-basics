@@ -3,6 +3,8 @@ import './App.css';
 import PropTypes from 'prop-types';
 import Persons from './../components/Persons/Persons';
 import Cockpit from './../components/Cockpit/Cockpit';
+import Wrapper from '../hoc/Wrapper'
+import wrapperIn from '../hoc/WrapperIn'
 
 class App extends PureComponent { // PureComponent will not let to render everything if nothing changed
     constructor(props) {
@@ -31,7 +33,8 @@ class App extends PureComponent { // PureComponent will not let to render everyt
             {id: '12', name: "Art", age: 263}
         ],
         showPersons: false,
-        otherState: 'Some string'
+        otherState: 'Some string',
+        togglePersonsCounter: 0
     };
 
     switchNameHandler = (newName) => {
@@ -64,11 +67,12 @@ class App extends PureComponent { // PureComponent will not let to render everyt
     };
 
     togglePersonsHandler = () => {
-        this.setState(
-            {
-                showPersons: !this.state.showPersons
+        this.setState( (prevState, props) => {
+            return {
+                showPersons: !this.state.showPersons,
+                togglePersonsCounter: prevState.togglePersonsCounter + 1
             }
-        );
+        });
     };
 
     deletePersonHandler = (personIndex) => {
@@ -100,7 +104,7 @@ class App extends PureComponent { // PureComponent will not let to render everyt
         }
 
         return (
-            <div className="App">
+            <Wrapper>
                 <button onClick={() => {this.setState({showPersons: true})}}>Always make visible</button>
                 <Cockpit
                     title={this.props.title}
@@ -110,7 +114,7 @@ class App extends PureComponent { // PureComponent will not let to render everyt
                     toggleClicked={this.togglePersonsHandler}
                 />
                 {persons}
-            </div>
+            </Wrapper>
         );
     }
 }
@@ -119,4 +123,4 @@ App.propTypes = {
     title: PropTypes.string.isRequired
 };
 
-export default App;
+export default wrapperIn(App, 'App');

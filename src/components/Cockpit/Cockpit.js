@@ -1,6 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 import PropTypes from 'prop-types';
+import Wrapper from '../../hoc/Wrapper';
 
 const cockpit = (props) => {
     const style = {
@@ -27,7 +28,7 @@ const cockpit = (props) => {
     }
 
     return (
-        <div>
+        <Wrapper>
             <h1 className={classes.join(' ')}>Here, {props.title}</h1>
             <button
                 onClick={props.switchNameClicked.bind(this, 'Maxooooooo')}
@@ -41,7 +42,7 @@ const cockpit = (props) => {
             >
                 Toggle Persons
             </button>
-        </div>
+        </Wrapper>
     );
 };
 

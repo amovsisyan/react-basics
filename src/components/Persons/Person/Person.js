@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Person.css';
+import WithClassWrapper from '../../../hoc/WithClassWrapper'
 
 class Person extends Component {
     constructor(props) {
@@ -19,17 +20,18 @@ class Person extends Component {
         console.log('Person.js in render');
 
         return (
-            <div className='Person'>
+            <WithClassWrapper className={'Person'}>
                 <p onClick={this.props.click}>I am {this.props.name}! And I am {this.props.age} age old!</p>
                 <p>{this.props.children}</p>
-                <input type="text" onChange={this.props.inputChange} value={this.props.name}/>
-            </div>
+                <input
+                    type="text"
+                    onChange={this.props.inputChange}
+                    value={this.props.name}
+                />
+            </WithClassWrapper>
         )
     }
 }
 
-// const person = (props) => {
-//     return
-// };
 
 export default Person;

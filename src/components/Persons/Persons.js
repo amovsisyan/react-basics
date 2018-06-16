@@ -52,10 +52,4 @@ class Persons extends PureComponent {
     }
 }
 
-// const persons = (props) => {
-//     return (
-//
-//     );
-// };
-
 export default Persons;
